@@ -1,4 +1,30 @@
+# Local research and reference documents (not used by the website)
+/research/
+/*.pdf
+
+# Operating system files
 desktop.ini
-Usability Testing Report and Draft.pdf
-gcm-diagnose.log
-South_View_Civil_Rights_Research_Word_Style.pdf
+Thumbs.db
+.DS_Store
+
+# Logs, temporary files and editor backups
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+
+# Local dependencies, caches and preview output
+node_modules/
+__pycache__/
+*.py[cod]
+/screenshots/
+/test-results/
+/playwright-report/
+
+# Local environment settings
+.env
+.env.local
+.env.*.local
