@@ -277,7 +277,7 @@ window.SOUTHVIEW_CONTENT = {
       "year": 1920,
       "date": "1920",
       "person": "Ludie Clay Andrews",
-      "title": "Ludie Clay Andrews became a registered nurse",
+      "title": "Ludie Clay Andrews became a unregistered nurse",
       "description": "After graduating from Spelman’s nursing program in 1906, Ludie Clay Andrews helped organize the Grady Municipal Training School for Colored Nurses in Atlanta in 1914. (Georgia Women of Achievement) She spent years challenging restrictions on state registration for Black nurses, refusing a license offered only to her and taking legal action on behalf of other qualified nurses. (Georgia Women of Achievement) In 1920, Black graduates of accredited nursing schools in Georgia could take the state registration examination, and Andrews became Georgia’s first Black registered nurse. (Georgia Women of Achievement)",
       "whyItBelongs": "Andrews later supervised care at the Morehouse-Spelman-Atlanta University Infirmary, continuing her work in nursing and education. (Georgia Women of Achievement) She was buried at South-View after her death in 1969, connecting the cemetery to the campaign for professional recognition for Black nurses. (Georgia Women of Achievement)",
       "media": {
