@@ -127,6 +127,16 @@ window.SOUTHVIEW_CONTENT = {
       "status": "draft"
     },
     {
+      "id": "Hello",
+      "number": "Prologue",
+      "title": "Cat",
+      "years": "1863–1885",
+      "start": 1860,
+      "end": 1885.9,
+      "intro": "After the Civil War, formerly enslaved Georgians built churches, schools and businesses while seeking political rights during Reconstruction. (Bragg) Henry McNeal Turner helped organize Georgia’s Republican Party and was elected to the state legislature, where white lawmakers expelled him and other Black members in 1868; they regained their seats in 1870. (Angell; Bragg) Those struggles formed part of the background to South-View, whose founders later organized a cemetery that Black Atlantans could own and manage. (Royster and Mehta)",
+      "status": "draft"
+    },
+    {
       "id": "founding",
       "number": "Part I",
       "title": "Founding and early history",
