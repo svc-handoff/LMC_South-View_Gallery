@@ -39,6 +39,34 @@
   const link = (label, url, cls) =>
     h('a', { class: cls, href: url, target: '_blank', rel: 'noopener noreferrer' }, [label, h('span', { class: 'ext', 'aria-hidden': 'true', text: ' ↗' })]);
 
+  // Render citation links from the content without interpreting HTML.
+  const citedText = (text) => {
+    const nodes = [];
+    const pattern = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g;
+    let end = 0;
+    for (const match of text.matchAll(pattern)) {
+      nodes.push(text.slice(end, match.index));
+      nodes.push(h('a', { href: match[2], target: '_blank', rel: 'noopener noreferrer' }, [match[1]]));
+      end = match.index + match[0].length;
+    }
+    nodes.push(text.slice(end));
+    return nodes;
+  };
+
+  // Authors are surname-first; ignore leading articles in organizations and titles.
+  const compareSources = (a, b) => {
+    const left = a.label.split(' · ');
+    const right = b.label.split(' · ');
+    for (const i of [0, 1]) {
+      const order = left[i].replace(/^(a|an|the)\s+/i, '').localeCompare(
+        right[i].replace(/^(a|an|the)\s+/i, ''), 'en',
+        { sensitivity: 'base', ignorePunctuation: true }
+      );
+      if (order) return order;
+    }
+    return a.label.localeCompare(b.label, 'en', { sensitivity: 'base' });
+  };
+
   const STATUS = {
     draft: 'Draft · sourced, needs team review',
     placeholder: 'Placeholder · research needed',
@@ -108,7 +136,7 @@
         h('div', { class: 'hero__inner reveal' }, [
           h('p', { class: 'hero__kicker', text: site.kicker || '' }),
           h('h1', { class: 'hero__title', id: 'hero-title', text: site.title || 'South-View' }),
-          h('p', { class: 'hero__dek', text: site.dek || '' }),
+          h('p', { class: 'hero__dek' }, citedText(site.dek || '')),
           h('p', { class: 'hero__cue', 'aria-hidden': 'true' }, [h('span', { text: 'Scroll to begin' }), h('span', { class: 'hero__cue-line' })]),
         ]),
       ]);
@@ -129,7 +157,7 @@
               h('p', { class: 'chapter__num', text: p.number || '' }),
               h('h2', { class: 'chapter__title', id: p.id + '-title', text: p.title }),
               p.years ? h('p', { class: 'chapter__years', text: p.years }) : null,
-              p.intro ? h('p', { class: 'chapter__intro', text: p.intro }) : null,
+              p.intro ? h('p', { class: 'chapter__intro' }, citedText(p.intro)) : null,
               this.statusChip(p.status),
             ]),
           ])
@@ -181,40 +209,37 @@
       });
       art.appendChild(h('div', { class: 'entry__year', 'aria-hidden': 'true', text: String(e.date && /^\d{4}$/.test(e.date) ? e.date : Math.floor(e.year)) }));
       art.appendChild(h('div', { class: 'entry__media reveal' }, [this.media(e)]));
-      // Keep one link per destination in an entry, retaining every source's role.
-      const destinations = new Map();
-      (e.sources || []).filter((s) => s && s.url).forEach((s) => {
-        if (!destinations.has(s.url)) destinations.set(s.url, { url: s.url, labels: [] });
-        const labels = destinations.get(s.url).labels;
-        const label = s.label || 'Source';
-        if (!labels.includes(label)) labels.push(label);
-      });
-      const m = e.media || {};
-      if (m.src && m.credit && destinations.has(m.creditUrl)) destinations.get(m.creditUrl).labels.push('Image credit');
-      const sources = Array.from(destinations.values());
       const body = h('div', { class: 'entry__body reveal' }, [
         h('div', { class: 'card' }, [
           h('p', { class: 'entry__eyebrow' }, [h('span', { class: 'entry__date', text: e.date || String(e.year) }), e.person ? h('span', { class: 'entry__person', text: e.person }) : null]),
           h('h3', { class: 'entry__title', id: titleId, text: e.title }),
-          e.description ? h('p', { class: 'entry__desc', text: e.description }) : null,
+          e.description ? h('p', { class: 'entry__desc' }, citedText(e.description)) : null,
           e.whyItBelongs
             ? h('div', { class: 'entry__why' }, [
                 h('h4', { class: 'entry__why-label' }, [h('span', { class: 'entry__why-icon', 'aria-hidden': 'true' }), 'Connection to South-View']),
-                h('p', { text: e.whyItBelongs }),
+                h('p', null, citedText(e.whyItBelongs)),
               ])
             : null,
-          sources.length
-            ? h(
-                'ul',
-                { class: 'entry__sources', 'aria-label': 'Sources' },
-                sources.map((s) => h('li', null, [link(s.labels.join(' · '), s.url)]))
-              )
-            : null,
+          this.sources(e.sources),
           this.statusChip(status),
         ]),
       ]);
       art.appendChild(body);
       return art;
+    }
+
+    sources(sources, heading = 'h4') {
+      const destinations = new Map();
+      (sources || []).filter((s) => s && s.url).forEach((s) => {
+        if (!destinations.has(s.url)) destinations.set(s.url, s);
+      });
+      const sorted = Array.from(destinations.values()).sort(compareSources);
+      if (!sorted.length) return null;
+      return h('div', { class: 'sources' }, [
+        h(heading, { class: 'sources__title', text: 'Sources' }),
+        h('ul', { class: 'entry__sources', 'aria-label': 'Sources' },
+          sorted.map((s) => h('li', null, [s.label, ' · ', link(s.url, s.url)]))),
+      ]);
     }
 
     media(e) {
@@ -269,15 +294,13 @@
         h('div', { class: 'finale__inner reveal' }, [
           h('p', { class: 'chapter__num', text: String(this.endYear) }),
           h('h2', { class: 'finale__title', id: 'finale-title', text: f.title || 'The view from South-View' }),
-          f.text ? h('p', { class: 'finale__text', text: f.text }) : null,
+          f.text ? h('p', { class: 'finale__text' }, citedText(f.text)) : null,
           f.address ? h('p', { class: 'finale__address', text: f.address }) : null,
           back,
           h('div', { class: 'finale__credits' }, [
             credits.course ? h('p', { class: 'finale__course', text: credits.course }) : null,
             credits.team ? h('p', { text: credits.team }) : null,
-            f.sources && f.sources.length
-              ? h('div', null, [h('h3', { text: 'Further reading' }), h('ul', null, f.sources.map((s) => h('li', null, [link(s.label, s.url)])))])
-              : null,
+            this.sources(f.sources, 'h3'),
             imageCredits.length ? h('div', null, [h('h3', { text: 'Image credits' }), h('ul', null, imageCredits)]) : null,
             credits.note ? h('p', { class: 'finale__note', text: credits.note }) : null,
           ]),
