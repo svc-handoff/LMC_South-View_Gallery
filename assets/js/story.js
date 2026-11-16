@@ -208,7 +208,10 @@
         'aria-labelledby': titleId,
       });
       art.appendChild(h('div', { class: 'entry__year', 'aria-hidden': 'true', text: String(e.date && /^\d{4}$/.test(e.date) ? e.date : Math.floor(e.year)) }));
-      art.appendChild(h('div', { class: 'entry__media reveal' }, [this.media(e)]));
+      art.appendChild(h('div', { class: 'entry__media reveal' }, [
+        this.media(e),
+        this.hbcuBox(e)
+      ]));
       const body = h('div', { class: 'entry__body reveal' }, [
         h('div', { class: 'card' }, [
           h('p', { class: 'entry__eyebrow' }, [h('span', { class: 'entry__date', text: e.date || String(e.year) }), e.person ? h('span', { class: 'entry__person', text: e.person }) : null]),
@@ -227,7 +230,74 @@
       art.appendChild(body);
       return art;
     }
+     
+    hbcuBox(e) {
+      const connections =
+        SV.hbcuConnections && SV.hbcuConnections[e.person];
 
+      // Don't show anything for people without HBCU connections.
+      if (!connections || !connections.length) return null;
+
+      const baseURL =
+        'https://southview-hbcu-connections.netlify.app/?person=';
+
+      // Small graduation-cap icon.
+      const ns = 'http://www.w3.org/2000/svg';
+      const cap = document.createElementNS(ns, 'svg');
+
+      cap.setAttribute('class', 'hbcu__cap');
+      cap.setAttribute('viewBox', '0 0 24 24');
+      cap.setAttribute('fill', 'none');
+      cap.setAttribute('stroke', 'currentColor');
+      cap.setAttribute('stroke-width', '1.8');
+      cap.setAttribute('stroke-linecap', 'round');
+      cap.setAttribute('stroke-linejoin', 'round');
+      cap.setAttribute('aria-hidden', 'true');
+
+      [
+        'M2 10 12 4l10 6-10 6L2 10Z',
+        'M6 12.5V17c0 2 3 3 6 3s6-1 6-3v-4.5',
+        'M22 10v7'
+      ].forEach((d) => {
+        const path = document.createElementNS(ns, 'path');
+        path.setAttribute('d', d);
+        cap.appendChild(path);
+      });
+
+      // Heading followed by school-specific information and links.
+      return h('aside', {
+        class: 'hbcu',
+        'aria-label': 'HBCU connections'
+      }, [
+        h('h4', { class: 'hbcu__heading' }, [
+          cap,
+          connections.length > 1
+            ? 'HBCU Connections'
+            : 'HBCU Connection'
+        ]),
+
+        ...connections.map((item) =>
+          h('div', { class: 'hbcu__item' }, [
+            h('p', {
+              class: 'hbcu__school',
+              text: item.school
+            }),
+
+            h('p', {
+              class: 'hbcu__description',
+              text: item.description
+            }),
+
+            link(
+              'Read the HBCU profile',
+              baseURL + encodeURIComponent(item.profileId),
+              'hbcu__link'
+            )
+          ])
+        )
+      ]);
+    }
+     
     sources(sources, heading = 'h4') {
       const destinations = new Map();
       (sources || []).filter((s) => s && s.url).forEach((s) => {
