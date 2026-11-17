@@ -33,6 +33,27 @@
       }
     ],
 
+    'Jesse B. Blayton Sr.': [
+      {
+        school: 'Morehouse College',
+        description: 'Taught accounting at Morehouse College before joining Atlanta University’s faculty.',
+        profileId: 'jesse-b-blayton'
+      },
+      {
+        school: 'Atlanta University',
+        description: 'Taught accounting and supervised students keeping books for Black-owned Atlanta businesses.',
+        profileId: 'jesse-b-blayton'
+      }
+    ],
+
+    'Freddye Scarborough Henderson': [
+      {
+        school: 'Spelman College',
+        description: 'Taught home economics, textiles and fashion design at Spelman for 11 years.',
+        profileId: 'freddye-scarborough-henderson'
+      }
+    ],
+
     'William Holmes Borders': [
       {
         school: 'Morehouse College',

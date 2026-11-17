@@ -288,7 +288,7 @@ window.SOUTHVIEW_CONTENT = {
         "alt": "Black-and-white portrait of Ludie Clay Andrews wearing a dark dress and pearl necklace, looking down at a booklet in her hands.",
         "caption": "Ludie Clay Andrews in the nursing school’s 1951 yearbook, decades after her campaign for state registration.",
         "credit": "Nightingale (1951), p. 7, Georgia State University Library, via Georgia Public Library Service · educational use permitted; cropped",
-        "creditUrl": "https://georgialibraries.omeka.net/s/central-state-hospital/item/793"
+        "creditUrl": "https://georgialibraries.omeka.net/s/central-state-hospital/item/794"
       },
       "sources": [
         {
@@ -384,6 +384,43 @@ window.SOUTHVIEW_CONTENT = {
       "focus": "sweet-auburn",
       "status": "researched",
       "note": "Project 2 information sheet review: The 1906 household account on page 34 is supported in the National Register district documentation, section 8, page 36. The exact death date matches article E035 on page 40 and New Georgia Encyclopedia. The December 2, 1939 card date remains the date of his interview."
+    },
+    {
+      "id": "jesse-b-blayton",
+      "year": 1949,
+      "date": "1949",
+      "period": "founding",
+      "person": "Jesse B. Blayton Sr.",
+      "title": "Jesse Blayton purchased WERD",
+      "description": "In 1949, Atlanta banker and professor Jesse B. Blayton Sr. bought WERD for $50,000, making it the first radio station in the United States owned by an African American ([Etling](https://www.georgiaencyclopedia.org/articles/arts-culture/werd/)). The station broadcast from the Prince Hall Masonic Lodge on Auburn Avenue, where Black announcers played music and presented other programming for Black listeners ([Etling](https://www.georgiaencyclopedia.org/articles/arts-culture/werd/)). Blayton hired his son, Jesse Blayton Jr., to manage the station, and disc jockey Jack Gibson became one of its best-known voices ([Etling](https://www.georgiaencyclopedia.org/articles/arts-culture/werd/)).",
+      "whyItBelongs": "Blayton was later buried at South-View ([Dixon](https://www.axios.com/local/atlanta/2024/07/19/advocates-begin-process-to-include-south-view-cemetery-on-historic-places-list)). In the 1960s, WERD shared its building with Martin Luther King Jr.’s Southern Christian Leadership Conference, linking Blayton’s broadcasting business to civil rights organizing on Auburn Avenue ([Etling](https://www.georgiaencyclopedia.org/articles/arts-culture/werd/)).",
+      "media": {
+        "type": "Historical photograph",
+        "src": "assets/images/archive/jesse-blayton-c1925.jpg",
+        "width": 2949,
+        "height": 4144,
+        "alt": "Jesse B. Blayton Sr. speaking beside a desk with an open book, with a blackboard behind him.",
+        "caption": "Jesse B. Blayton, in a portrait from the Atlanta University Photographs collection.",
+        "credit": "Atlanta University Photographs, Archives Research Center, Atlanta University Center Robert W. Woodruff Library · public domain in the United States (NoC-US)",
+        "creditUrl": "https://radar.auctr.edu/node/77569"
+      },
+      "sources": [
+        {
+          "label": "Dixon, Kristal · Advocates Begin Process to Include South View Cemetery on Historic Places List · Axios Atlanta · 2024",
+          "url": "https://www.axios.com/local/atlanta/2024/07/19/advocates-begin-process-to-include-south-view-cemetery-on-historic-places-list"
+        },
+        {
+          "label": "Etling, Laurence W. · WERD · New Georgia Encyclopedia · 2005",
+          "url": "https://www.georgiaencyclopedia.org/articles/arts-culture/werd/"
+        },
+        {
+          "label": "Hope, John · Trained Men for Negro Business · Opportunity: Journal of Negro Life · 1931",
+          "url": "https://www.sbana.org/wp-content/uploads/2019/02/Opportunity-Journal-of-Negro-Life-Volume-9_November1931-Trained-Men-for-Negro-Business-by-John-Hope.pdf#page=7"
+        }
+      ],
+      "focus": "sweet-auburn",
+      "status": "draft",
+      "note": "The event year is the 1949 station purchase. Replacement portrait supplied by the team: RADAR node 77569, Atlanta University Photographs, public domain in the United States (NoC-US). The matching image copy and rights metadata were retrieved from the linked HBCU project because RADAR returned an empty response. Its filename identifies circa 1925; the public caption leaves the date unspecified. The HBCU connections refer to his teaching at Morehouse and Atlanta University."
     },
     {
       "id": "william-holmes-borders",
@@ -992,6 +1029,39 @@ window.SOUTHVIEW_CONTENT = {
       ],
       "focus": "georgia-dome",
       "status": "draft"
+    },
+    {
+      "id": "freddye-henderson-2007",
+      "year": 2007,
+      "date": "January 24, 2007",
+      "period": "legacy",
+      "person": "Freddye Scarborough Henderson",
+      "title": "Freddye Henderson was buried at South-View",
+      "description": "Freddye Scarborough Henderson’s funeral took place at Ebenezer Baptist Church on January 24, 2007, five days after her death ([Auburn Avenue Research Library](https://dlg.usg.edu/record/aarl_afpc_hendersonfreddyescarborough20070124)). She and her husband, Jacob, had founded Henderson Travel Service in Atlanta in 1955, helping Black travelers experience freedoms abroad that segregation denied them at home ([Auburn Avenue Research Library](https://dlg.usg.edu/record/aarl_afpc_hendersonfreddyescarborough20070124)). The agency organized a tour for Ghana’s independence in 1957 and arranged Martin Luther King Jr.’s journey to Norway for the 1964 Nobel Peace Prize ceremony ([Auburn Avenue Research Library](https://dlg.usg.edu/record/aarl_afpc_hendersonfreddyescarborough20070124)).",
+      "whyItBelongs": "Her funeral program listed South-View as the place of interment and stated that she would rest beside her husband, Jake ([Auburn Avenue Research Library](https://dlg.usg.edu/record/aarl_afpc_hendersonfreddyescarborough20070124)). Her burial connects the cemetery to a family business that expanded travel opportunities for Black Americans and built relationships with communities abroad ([Auburn Avenue Research Library](https://dlg.usg.edu/record/aarl_afpc_hendersonfreddyescarborough20070124)).",
+      "media": {
+        "type": "Historical photograph",
+        "src": "assets/images/archive/freddye-henderson-1951.jpg",
+        "width": 630,
+        "height": 800,
+        "alt": "Freddye Scarborough Henderson looking down at a book in a newspaper photograph.",
+        "caption": "Freddye Scarborough Henderson in the Atlanta Daily World, May 19, 1951. Cropped from a photograph of her reading with her children.",
+        "credit": "Atlanta Daily World / Freddye Scarborough Henderson Family Papers, Auburn Avenue Research Library · public domain or no known copyright restrictions (Library of Congress assessment)",
+        "creditUrl": "https://georgialibraries.omeka.net/s/aarl-freddye/item/3445"
+      },
+      "sources": [
+        {
+          "label": "Auburn Avenue Research Library · A Service Honoring the Life of Freddye Scarborough Henderson · Atlanta Funeral Programs Collection, Digital Library of Georgia · 2007",
+          "url": "https://dlg.usg.edu/record/aarl_afpc_hendersonfreddyescarborough20070124"
+        },
+        {
+          "label": "Library of Congress · Atlanta Daily World · Rights & Access",
+          "url": "https://www.loc.gov/item/sn82015425/?st=calendar#rights-and-access"
+        }
+      ],
+      "focus": "ebenezer",
+      "status": "draft",
+      "note": "January 24, 2007 is the funeral and interment date; Henderson Travel Service began in 1955. The DLG catalog description has an apparent 1907 birth-year typo; the program text gives 1917. Replacement image: the portrait crop already used by the HBCU project, from Omeka item 3445, the Atlanta Daily World World Mother clipping dated May 19, 1951. The team and HBCU project identify it as public domain or having no known copyright restrictions based on the linked Library of Congress newspaper assessment. The HBCU connection records her 11 years teaching at Spelman, as documented by her funeral program."
     },
     {
       "id": "lillian-miles-lewis-2013",
