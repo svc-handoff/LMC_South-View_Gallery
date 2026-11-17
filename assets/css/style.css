@@ -165,6 +165,14 @@ a:hover {
   letter-spacing: -0.025em;
   font-variation-settings: 'opsz' 144;
 }
+.hero__location {
+  margin: 0 auto 1.15rem;
+  max-width: 34rem;
+  font-family: var(--mono);
+  font-size: clamp(0.7rem, 1.2vw, 0.82rem);
+  line-height: 1.6;
+  color: var(--ink-2);
+}
 .hero__dek {
   margin: 0 auto;
   max-width: 34rem;
@@ -347,6 +355,11 @@ html.is-dusk .entry__year {
   margin-right: 0.9rem;
   vertical-align: middle;
   background: var(--rule);
+}
+.entry__lifespan {
+  white-space: nowrap;
+  letter-spacing: 0;
+  text-transform: none;
 }
 .entry__title {
   margin: 0 0 0.75rem;

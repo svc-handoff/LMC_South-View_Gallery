@@ -31,6 +31,7 @@
      period        optional: "prologue" | "founding" | "civil-rights" |
                    "legacy" (otherwise worked out from the year)
      person        name(s) the entry is about
+     lifespan      birth and death years shown beside the name ("1834–1915")
      title         short headline
      description   what happened
      whyItBelongs  the connection to South-View (shown under the heading
@@ -53,6 +54,8 @@ window.SOUTHVIEW_CONTENT = {
   site: {
     "title": "South-View",
     "kicker": "An illustrated history of Black Atlanta",
+    "location": "1990 Jonesboro Road SE · Atlanta, Georgia 30315",
+    "locationUrl": "https://www.google.com/maps/search/?api=1&query=South-View+Cemetery+1990+Jonesboro+Road+SE+Atlanta+GA+30315",
     "dek": "Black Atlantans founded South-View Cemetery in 1886 in response to discrimination at the city’s segregated burial grounds ([Georgia Historical Society](https://www.georgiahistory.com/ghmi_marker_updated/south-view-cemetery/)). This timeline follows people connected to the cemetery and their work in Atlanta, from the Civil War to the present. The changing skyline accompanies the lives of ministers, nurses, business owners, athletes and organizers whose stories appear along the way.",
     "startYear": 1860,
     "endYear": 2026,
@@ -165,6 +168,7 @@ window.SOUTHVIEW_CONTENT = {
       "date": "1863",
       "period": "prologue",
       "person": "Henry McNeal Turner",
+      "lifespan": "1834–1915",
       "title": "Henry McNeal Turner served as an Army chaplain",
       "description": "In 1863, Henry McNeal Turner helped organize the First Regiment of United States Colored Troops and served as its chaplain during the Civil War ([Angell](https://www.georgiaencyclopedia.org/articles/arts-culture/henry-mcneal-turner-1834-1915/)). After the war, he organized African Methodist Episcopal congregations in Georgia, helped establish the state’s Republican Party and served in its constitutional convention ([Angell](https://www.georgiaencyclopedia.org/articles/arts-culture/henry-mcneal-turner-1834-1915/)). Elected to the Georgia House during Reconstruction, he was among the Black legislators expelled by their white colleagues in 1868 and restored to office in 1870 ([Angell](https://www.georgiaencyclopedia.org/articles/arts-culture/henry-mcneal-turner-1834-1915/); [Bragg](https://www.georgiaencyclopedia.org/articles/history-archaeology/reconstruction-in-georgia/)).",
       "whyItBelongs": "Turner later became an AME bishop and was buried at South-View, where the historical marker names his work during Reconstruction and in the church ([Angell](https://www.georgiaencyclopedia.org/articles/arts-culture/henry-mcneal-turner-1834-1915/); [Georgia Historical Society](https://www.georgiahistory.com/ghmi_marker_updated/south-view-cemetery/)). His life connects the cemetery to the political organizing and church building that followed emancipation, decades before the modern Civil Rights Movement ([Angell](https://www.georgiaencyclopedia.org/articles/arts-culture/henry-mcneal-turner-1834-1915/)).",
@@ -201,6 +205,7 @@ window.SOUTHVIEW_CONTENT = {
       "year": 1886,
       "date": "April 21, 1886",
       "person": "Robert Grant",
+      "lifespan": "1826–1896",
       "title": "Robert Grant helped establish South-View",
       "description": "Robert Grant was an Atlanta blacksmith, businessman and minister who helped establish South-View Cemetery in 1886 ([Historic South-View Preservation Foundation](https://www.southviewpreservation.com/robertgrant); [South-View Cemetery Association](https://southviewcemetery.com/our-history/)). In 1872, he and other members of Friendship Baptist Church founded Zion Hill Baptist Church, first meeting in a brush arbor near their homes ([Zion Hill Baptist Church](https://www.zionhill.org/historyarchive)). Grant later joined other local organizers in creating a cemetery at a time when Black families faced discrimination at Atlanta’s existing burial grounds ([Georgia Historical Society](https://www.georgiahistory.com/georgia-historical-society-to-recognize-south-view-cemetery-with-historical-marker-dedication-this-saturday/)).",
       "whyItBelongs": "South-View’s organizers sought a place where those families could bury their relatives without the restrictions imposed at segregated cemeteries ([Georgia Historical Society](https://www.georgiahistory.com/georgia-historical-society-to-recognize-south-view-cemetery-with-historical-marker-dedication-this-saturday/)). Grant was among the signers of the association’s charter, granted on April 21, 1886, making him part of the cemetery’s founding as well as its surrounding church community ([Royster and Mehta](https://leading-edge.iac.gatech.edu/building-memories/southview-cemetery/)).",
@@ -234,17 +239,22 @@ window.SOUTHVIEW_CONTENT = {
         {
           "label": "Zion Hill Baptist Church · A Brief History of Zion Hill Baptist Church, 1872–2023 · Zion Hill Baptist Church · 2023",
           "url": "https://www.zionhill.org/historyarchive"
+        },
+        {
+          "label": "Zion Hill Baptist Church · Pastor Grant · Zion Hill Baptist Church",
+          "url": "https://www.zionhill.org/history/grant"
         }
       ],
       "focus": "south-view",
       "status": "researched",
-      "note": "The South-View Preservation Foundation displays this portrait with a courtesy credit to Zion Hill Baptist Church Archives. Its original publication date and permission for reuse on this timeline remain unconfirmed; do not describe it as public domain or freely licensed. Project 2 information sheet review: The church founding year, 1872, matches pages 2–4 and 28; the cemetery founding year, 1886, also agrees. The exact charter date is documented by Building Memories. The date displayed on this card is the cemetery charter, not the church founding."
+      "note": "The South-View Preservation Foundation displays this portrait with a courtesy credit to Zion Hill Baptist Church Archives. Its original publication date and permission for reuse on this timeline remain unconfirmed; do not describe it as public domain or freely licensed. Project 2 information sheet review: The church founding year, 1872, matches pages 2–4 and 28; the cemetery founding year, 1886, also agrees. The exact charter date is documented by Building Memories. The date displayed on this card is the cemetery charter, not the church founding. The 1826–1896 lifespan comes from page 28 of the supplied Project 2 information sheet; Zion Hill's pastor history independently confirms his death in 1896."
     },
     {
       "id": "alonzo-herndon",
       "year": 1905,
       "date": "1905",
       "person": "Alonzo Franklin Herndon",
+      "lifespan": "1858–1927",
       "title": "Alonzo Herndon entered the insurance business",
       "description": "Born into slavery in Walton County on June 26, 1858, Alonzo Franklin Herndon became an Atlanta barber, property owner and insurance businessman ([Henderson](https://www.georgiaencyclopedia.org/articles/business-economy/alonzo-herndon-1858-1927/)). In 1905, he purchased a mutual aid association and incorporated it as the Atlanta Mutual Insurance Association, which became the Atlanta Life Insurance Company in 1922 ([Henderson](https://www.georgiaencyclopedia.org/articles/business-economy/alonzo-herndon-1858-1927/)). During the 1906 Atlanta Race Massacre, a white mob smashed his Peachtree Street barbershop’s windows, but Herndon had already gone home and escaped injury ([Henderson](https://www.georgiaencyclopedia.org/articles/business-economy/alonzo-herndon-1858-1927/)).",
       "whyItBelongs": "Herndon supported schools, churches, charitable organizations and the South-View Cemetery Association, making the cemetery one of the local institutions in which he invested ([Henderson](https://www.georgiaencyclopedia.org/articles/business-economy/alonzo-herndon-1858-1927/)). He was buried at South-View, and the cemetery’s historical marker identifies him as the founder of Atlanta Life ([Georgia Historical Society](https://www.georgiahistory.com/ghmi_marker_updated/south-view-cemetery/)).",
@@ -277,6 +287,7 @@ window.SOUTHVIEW_CONTENT = {
       "year": 1920,
       "date": "1920",
       "person": "Ludie Clay Andrews",
+      "lifespan": "c. 1872–1969",
       "title": "Ludie Clay Andrews became a registered nurse",
       "description": "After graduating from Spelman’s nursing program in 1906, Ludie Clay Andrews helped organize the Grady Municipal Training School for Colored Nurses in Atlanta in 1914 ([Georgia Women of Achievement](https://www.georgiawomen.org/ludie-clay-andrews)). She spent years challenging restrictions on state registration for Black nurses, refusing a license offered only to her and taking legal action on behalf of other qualified nurses ([Georgia Women of Achievement](https://www.georgiawomen.org/ludie-clay-andrews)). In 1920, Black graduates of accredited nursing schools in Georgia could take the state registration examination, and Andrews became Georgia’s first Black registered nurse ([Georgia Women of Achievement](https://www.georgiawomen.org/ludie-clay-andrews)).",
       "whyItBelongs": "Andrews later supervised care at the Morehouse-Spelman-Atlanta University Infirmary, continuing her work in nursing and education ([Georgia Women of Achievement](https://www.georgiawomen.org/ludie-clay-andrews)). She was buried at South-View after her death in 1969, connecting the cemetery to the campaign for professional recognition for Black nurses ([Georgia Women of Achievement](https://www.georgiawomen.org/ludie-clay-andrews)).",
@@ -298,7 +309,7 @@ window.SOUTHVIEW_CONTENT = {
       ],
       "focus": "grady",
       "status": "researched",
-      "note": "Project 2 information sheet review: Pages 38–40 agree on the 1914 training school and 1920 state registration. The sheet lists a birth year of 1875, while Georgia Women of Achievement gives September 4, 1872. The birth date remains omitted from the public entry pending stronger evidence; do not silently treat either as established."
+      "note": "Project 2 information sheet review: Pages 38–40 agree on the 1914 training school and 1920 state registration. The sheet lists a birth year of 1875, while Georgia Women of Achievement gives September 4, 1872. The displayed lifespan uses c. 1872–1969 to mark the birth year as approximate while these sources disagree."
     },
     {
       "id": "david-t-howard",
@@ -306,6 +317,7 @@ window.SOUTHVIEW_CONTENT = {
       "date": "1924",
       "period": "founding",
       "person": "David Tobias Howard",
+      "lifespan": "1849–1935",
       "title": "A school opened on David T. Howard’s land",
       "description": "Born into slavery in Georgia in 1849, David Tobias Howard worked as a railroad porter before establishing an undertaking business in Atlanta ([Atlanta Public Schools](https://apstoday.us/2017/02/08/atlanta-public-schools-announces-partnership-with-puma-david-t-howard-high-school-alumni-association/)). He donated the seven-and-a-half-acre site for a school serving Black children in the Old Fourth Ward, which opened in 1924 and was named for him ([Smith](https://www.coaa.org/resources/howard-middle-school-building-stands-ready-for-its-second-century)). Its students included Martin Luther King Jr., who attended from 1936 to 1940, as well as several other future Atlanta civic and business leaders ([Smith](https://www.coaa.org/resources/howard-middle-school-building-stands-ready-for-its-second-century)).",
       "whyItBelongs": "Howard served on the South-View Cemetery Association’s board as well as supporting Black education in Atlanta, and he died in 1935 ([Royster and Mehta](https://leading-edge.iac.gatech.edu/building-memories/southview-cemetery/); [Atlanta Public Schools](https://apstoday.us/2017/02/08/atlanta-public-schools-announces-partnership-with-puma-david-t-howard-high-school-alumni-association/)). King’s later burial at South-View in 1968 provides another connection between the school’s history and the cemetery ([National Park Service](https://www.nps.gov/malu/a-strong-and-enduring-acknowledgment.htm)).",
@@ -346,6 +358,7 @@ window.SOUTHVIEW_CONTENT = {
       "year": 1939,
       "date": "December 2, 1939",
       "person": "John Wesley Dobbs",
+      "lifespan": "1882–1961",
       "title": "John Wesley Dobbs recorded his life story",
       "description": "John Wesley Dobbs worked as a railway mail clerk while becoming an organizer for Black voting rights in Atlanta ([Bailey](https://www.georgiaencyclopedia.org/articles/history-archaeology/john-wesley-dobbs-1882-1961/)). He founded the Atlanta Civic and Political League in 1936 and later helped establish the Atlanta Negro Voters League, using churches, Masonic halls and public meetings to encourage voter registration ([Bailey](https://www.georgiaencyclopedia.org/articles/history-archaeology/john-wesley-dobbs-1882-1961/)). In a Federal Writers’ Project interview on December 2, 1939, he described his childhood, education and working life in his own words ([Tensill](https://tile.loc.gov/storage-services/service/mss/wpalh/wpalh-13070415/wpalh-13070415.pdf)).",
       "whyItBelongs": "During the 1906 Atlanta Race Massacre, Dobbs watched a white mob approach the Auburn Avenue home where he lived before it turned away ([Moffson](https://npgallery.nps.gov/NRHP/GetAsset/aed2eed0-43c2-4073-b83b-1277caacc2c9)). He died on August 30, 1961, the day Atlanta’s public schools desegregated, and was buried at South-View ([Bailey](https://www.georgiaencyclopedia.org/articles/history-archaeology/john-wesley-dobbs-1882-1961/); [Royster and Mehta](https://leading-edge.iac.gatech.edu/building-memories/southview-cemetery/)). His grandson, Maynard Holbrook Jackson Jr., became Atlanta’s first Black mayor in 1973 ([Today in Georgia History](https://www.todayingeorgiahistory.org/tih-georgia-day/maynard-jackson-elected/)).",
@@ -391,6 +404,7 @@ window.SOUTHVIEW_CONTENT = {
       "date": "1949",
       "period": "founding",
       "person": "Jesse B. Blayton Sr.",
+      "lifespan": "1897–1977",
       "title": "Jesse Blayton purchased WERD",
       "description": "In 1949, Atlanta banker and professor Jesse B. Blayton Sr. bought WERD for $50,000, making it the first radio station in the United States owned by an African American ([Etling](https://www.georgiaencyclopedia.org/articles/arts-culture/werd/)). The station broadcast from the Prince Hall Masonic Lodge on Auburn Avenue, where Black announcers played music and presented other programming for Black listeners ([Etling](https://www.georgiaencyclopedia.org/articles/arts-culture/werd/)). Blayton hired his son, Jesse Blayton Jr., to manage the station, and disc jockey Jack Gibson became one of its best-known voices ([Etling](https://www.georgiaencyclopedia.org/articles/arts-culture/werd/)).",
       "whyItBelongs": "Blayton was later buried at South-View ([Dixon](https://www.axios.com/local/atlanta/2024/07/19/advocates-begin-process-to-include-south-view-cemetery-on-historic-places-list)). In the 1960s, WERD shared its building with Martin Luther King Jr.’s Southern Christian Leadership Conference, linking Blayton’s broadcasting business to civil rights organizing on Auburn Avenue ([Etling](https://www.georgiaencyclopedia.org/articles/arts-culture/werd/)).",
@@ -427,6 +441,7 @@ window.SOUTHVIEW_CONTENT = {
       "year": 1957,
       "date": "January 9, 1957",
       "person": "William Holmes Borders",
+      "lifespan": "1905–1993",
       "title": "William Holmes Borders challenged bus segregation",
       "description": "On January 9, 1957, William Holmes Borders and five other Black ministers took seats at the front of a segregated Atlanta bus as part of the Love, Law, and Liberation campaign ([Hatfield](https://www.georgiaencyclopedia.org/articles/arts-culture/william-holmes-borders-1905-1993/)). The organizers arranged a peaceful arrest to challenge segregation through the courts, and Atlanta’s buses were desegregated in 1959 ([Hatfield](https://www.georgiaencyclopedia.org/articles/arts-culture/william-holmes-borders-1905-1993/)). As pastor of Wheat Street Baptist Church, Borders also organized services for his congregation, including a credit union, employment assistance and a medical clinic ([Hatfield](https://www.georgiaencyclopedia.org/articles/arts-culture/william-holmes-borders-1905-1993/)).",
       "whyItBelongs": "Borders was buried at South-View, where the Atlanta Cemetery Network’s civil rights tour includes his grave ([Atlanta Department of City Planning](https://static1.squarespace.com/static/5e6fd72f1f7dae1c021471b9/t/62e2e28cc36da05fea948c4b/1659036304775/Civil%2BRights%2BCemetery%2BTour.pdf)). His work joined the city’s church life to campaigns for access to public transportation and other basic services ([Hatfield](https://www.georgiaencyclopedia.org/articles/arts-culture/william-holmes-borders-1905-1993/)).",
@@ -458,6 +473,7 @@ window.SOUTHVIEW_CONTENT = {
       "year": 1959,
       "date": "1959–1966",
       "person": "Annie Lou McPheeters",
+      "lifespan": "1908–1994",
       "title": "Annie Lou McPheeters worked to desegregate libraries",
       "description": "Annie Lou McPheeters, born in Floyd County on February 22, 1908, developed reading programs and a Black history collection while working in Atlanta’s segregated public libraries ([Williams](https://www.georgiaencyclopedia.org/articles/education/annie-l-mcpheeters-1908-1994/)). At the West Hunter Branch, she worked with advocacy groups that won desegregation of library services in 1959, although staff segregation continued into the following decade ([Williams](https://www.georgiaencyclopedia.org/articles/education/annie-l-mcpheeters-1908-1994/)). She joined Georgia State College as its first Black reference librarian in 1966, continuing a career that combined access to books with the preservation of Black history ([Williams](https://www.georgiaencyclopedia.org/articles/education/annie-l-mcpheeters-1908-1994/)).",
       "whyItBelongs": "McPheeters died on December 23, 1994, and her funeral program, dated December 29, 1994, listed South-View as the place of interment ([Williams](https://www.georgiaencyclopedia.org/articles/education/annie-l-mcpheeters-1908-1994/); [Auburn Avenue Research Library](https://dlg.usg.edu/record/aarl_afpc_mcpheetersanniel19941229)). The program also recorded her teaching at the Atlanta University School of Library Service, documenting the educational work behind her career in public libraries ([Auburn Avenue Research Library](https://dlg.usg.edu/record/aarl_afpc_mcpheetersanniel19941229)).",
@@ -490,6 +506,7 @@ window.SOUTHVIEW_CONTENT = {
       "year": 1965,
       "date": "March 7, 1965",
       "person": "John Robert Lewis",
+      "lifespan": "1940–2020",
       "title": "John Lewis led voting rights marchers at Selma",
       "description": "John Robert Lewis chaired the Student Nonviolent Coordinating Committee and spoke at the 1963 March on Washington for Jobs and Freedom ([U.S. House of Representatives](https://history.house.gov/People/Detail/16948)). On March 7, 1965, he and Hosea Williams led voting rights marchers across the Edmund Pettus Bridge in Selma, Alabama, where state troopers attacked them in the assault known as Bloody Sunday ([Lewis](https://obamawhitehouse.archives.gov/blog/2015/08/06/50-years-ago)). Lewis later recalled that the marchers intended to reach Montgomery to demand protection of the right to vote ([Lewis](https://obamawhitehouse.archives.gov/blog/2015/08/06/50-years-ago)).",
       "whyItBelongs": "Lewis went on to represent Atlanta in Congress from 1987 until his death in 2020 ([U.S. House of Representatives](https://history.house.gov/People/Detail/16948)). His burial at South-View on July 30, 2020, connected the cemetery to both his civil rights organizing and his later work in public office ([Clappin](https://citydesign.atlantaga.gov/blog/2022/7/28/promised-land-a-tour-of-atlantas-historically-african-american-cemeteries-and-the-graves-of-civil-rights-pioneers)).",
@@ -525,6 +542,7 @@ window.SOUTHVIEW_CONTENT = {
       "year": 1965,
       "date": "June 1965",
       "person": "Grace Towns Hamilton",
+      "lifespan": "1907–1992",
       "title": "Grace Towns Hamilton won a seat in Georgia’s legislature",
       "description": "Grace Towns Hamilton became executive director of the Atlanta Urban League in 1943, organizing campaigns for better schooling, housing, health care and voting rights for Black Atlantans ([Spritzer and Bergmark](https://www.georgiaencyclopedia.org/articles/history-archaeology/grace-towns-hamilton-1907-1992/)). In June 1965, she became the first Black woman elected to the Georgia General Assembly, bringing that experience into the state legislature ([Spritzer and Bergmark](https://www.georgiaencyclopedia.org/articles/history-archaeology/grace-towns-hamilton-1907-1992/)). Her later work included helping write Atlanta’s 1973 city charter and taking part in redistricting debates that shaped Black representation in local and national government ([Spritzer and Bergmark](https://www.georgiaencyclopedia.org/articles/history-archaeology/grace-towns-hamilton-1907-1992/)).",
       "whyItBelongs": "Hamilton died on June 17, 1992, and was buried at South-View ([Spritzer and Bergmark](https://www.georgiaencyclopedia.org/articles/history-archaeology/grace-towns-hamilton-1907-1992/); [Royster and Mehta](https://leading-edge.iac.gatech.edu/building-memories/southview-cemetery/)). Her grave connects the cemetery to the work of changing voting districts and government institutions as well as organizing for access to the ballot ([Spritzer and Bergmark](https://www.georgiaencyclopedia.org/articles/history-archaeology/grace-towns-hamilton-1907-1992/)).",
@@ -556,6 +574,7 @@ window.SOUTHVIEW_CONTENT = {
       "year": 1966,
       "date": "1966",
       "person": "Ruby Doris Smith Robinson",
+      "lifespan": "1942–1967",
       "title": "Ruby Doris Smith Robinson led SNCC’s office",
       "description": "As a Spelman College student, Ruby Doris Smith Robinson took part in Atlanta sit-ins, the Rock Hill jail-no-bail protests and the Freedom Rides ([SNCC Digital Gateway](https://snccdigital.org/people/ruby-doris-smith-robinson/)). In the Atlanta office of the Student Nonviolent Coordinating Committee (SNCC), she coordinated supplies, transportation and support for field organizers, including the cars of the Sojourner Truth Motor Fleet ([SNCC Digital Gateway](https://snccdigital.org/people/ruby-doris-smith-robinson/)). In 1966, she became SNCC’s executive secretary, taking responsibility for the office work that supported protest and voter registration campaigns across the South ([SNCC Digital Gateway](https://snccdigital.org/people/ruby-doris-smith-robinson/)).",
       "whyItBelongs": "Robinson died of cancer in 1967 at age 25 ([SNCC Digital Gateway](https://snccdigital.org/people/ruby-doris-smith-robinson/)). A South-View cemetery record card dated October 14, 1967, identified her as Ruby Doris Smith and documented her burial there ([Atlanta University Center](https://dlg.usg.edu/record/auu_auc-078_auc-078-0137)).",
@@ -587,6 +606,7 @@ window.SOUTHVIEW_CONTENT = {
       "year": 1966,
       "date": "April 12, 1966",
       "person": "Henry Louis Aaron",
+      "lifespan": "1934–2021",
       "title": "Hank Aaron played in the Braves’ Atlanta debut",
       "description": "Henry Louis Aaron, known as Hank Aaron, began his professional career with the Indianapolis Clowns of the Negro American League before joining the Braves ([Minter](https://www.georgiaencyclopedia.org/articles/sports-outdoor-recreation/hank-aaron-1934-2021/)). When the team moved from Milwaukee to Atlanta in 1966, he brought years of major league experience to a Southern city still confronting segregation and racial discrimination ([Minter](https://www.georgiaencyclopedia.org/articles/sports-outdoor-recreation/hank-aaron-1934-2021/)). On April 12, 1966, he played in the Braves’ first regular-season game at Atlanta Stadium, marking the start of the franchise’s Atlanta years ([Atlanta History Center](https://www.atlantahistorycenter.com/exhibitions/atlanta-in-50-objects/the-atlanta-braves/); [Minter](https://www.georgiaencyclopedia.org/articles/sports-outdoor-recreation/hank-aaron-1934-2021/)).",
       "whyItBelongs": "Aaron broke Babe Ruth’s career home run record in the same stadium in 1974 ([Muder](https://baseballhall.org/discover-more/stories/inside-pitch/henry-aaron-hits-home-run-number-715)). He was buried at South-View after his death in 2021, joining the athletes and civil rights figures remembered in the cemetery’s history ([Clappin](https://citydesign.atlantaga.gov/blog/2022/7/28/promised-land-a-tour-of-atlantas-historically-african-american-cemeteries-and-the-graves-of-civil-rights-pioneers)).",
@@ -626,6 +646,7 @@ window.SOUTHVIEW_CONTENT = {
       "year": 1966,
       "date": "December 4, 1966",
       "person": "Martin Luther King Sr.",
+      "lifespan": "1897–1984",
       "title": "Martin Luther King Sr. spoke in Montgomery",
       "description": "Martin Luther King Sr., pastor of Atlanta’s Ebenezer Baptist Church, worked on voter registration and campaigns for equal pay for Black teachers ([King Institute](https://kinginstitute.stanford.edu/king-martin-luther-sr)). He supported his son’s civil rights work while worrying about the danger to his family during the Montgomery bus boycott ([King Institute](https://kinginstitute.stanford.edu/king-martin-luther-sr)). On December 4, 1966, he spoke at Holt Street Baptist Church during the Montgomery Improvement Association’s anniversary gathering, continuing his involvement in the movement beyond Atlanta ([Alabama Department of Archives and History](https://crdl.usg.edu/record/aar_peppler_8378)).",
       "whyItBelongs": "King Sr. and his wife, Alberta Williams King, were buried at South-View ([Georgia Historical Society](https://www.georgiahistory.com/georgia-historical-society-to-recognize-south-view-cemetery-with-historical-marker-dedication-this-saturday/)). Their son, Martin Luther King Jr., was also buried there after his funeral in 1968, before his crypt was moved to the King Center in 1970 ([National Park Service](https://www.nps.gov/malu/a-strong-and-enduring-acknowledgment.htm)).",
@@ -665,6 +686,7 @@ window.SOUTHVIEW_CONTENT = {
       "year": 1966,
       "date": "December 5, 1966",
       "person": "Horace Julian Bond",
+      "lifespan": "1940–2015",
       "title": "Julian Bond won the right to take his seat",
       "description": "Horace Julian Bond helped found the Student Nonviolent Coordinating Committee and worked as its communications director, sending reports of racial violence to the press and federal officials ([SNCC Digital Gateway](https://snccdigital.org/people/julian-bond/)). Elected to the Georgia House in 1965, he was refused his seat in January 1966 after supporting SNCC’s opposition to the Vietnam War ([U.S. Supreme Court](https://www.law.cornell.edu/supremecourt/text/385/116)). On December 5, 1966, the U.S. Supreme Court ruled that his exclusion violated the First Amendment, and Bond took his seat on January 9, 1967 ([U.S. Supreme Court](https://www.law.cornell.edu/supremecourt/text/385/116); [SNCC Digital Gateway](https://snccdigital.org/people/julian-bond/)).",
       "whyItBelongs": "In a Canopy Atlanta interview, his son Michael Julian Bond described how the family divided Bond’s cremated remains between the Atlantic Ocean and South-View ([Bond and Roberts](https://canopyatlanta.org/2023/11/17/atlantans-share-their-familial-connections-to-south-view-cemetery/)). He said the children brought a portion to the cemetery to carry out the burial wishes their father had shared with them ([Bond and Roberts](https://canopyatlanta.org/2023/11/17/atlantans-share-their-familial-connections-to-south-view-cemetery/)).",
@@ -701,6 +723,7 @@ window.SOUTHVIEW_CONTENT = {
       "date": "April 9, 1968",
       "period": "civil-rights",
       "person": "Martin Luther King Jr.",
+      "lifespan": "1929–1968",
       "title": "Martin Luther King Jr. was buried at South-View",
       "description": "After Martin Luther King Jr. was assassinated in Memphis on April 4, 1968, his funeral took place in Atlanta on April 9 ([King Institute](https://kinginstitute.stanford.edu/assassination-martin-luther-king-jr)). A service at Ebenezer Baptist Church was followed by a procession to Morehouse College, with two mules pulling a farm wagon carrying his casket and more than 100,000 mourners following through the streets ([King Institute](https://kinginstitute.stanford.edu/assassination-martin-luther-king-jr)). Morehouse educator Benjamin Elijah Mays delivered the eulogy, recalling King’s commitment to nonviolence and his support for striking sanitation workers ([King Institute](https://kinginstitute.stanford.edu/mays-benjamin-elijah)).",
       "whyItBelongs": "King was buried at South-View after the services, and his crypt was relocated to the King Center in 1970 ([National Park Service](https://www.nps.gov/malu/a-strong-and-enduring-acknowledgment.htm)). His parents, Martin Luther King Sr. and Alberta Williams King, were later buried at South-View ([Georgia Historical Society](https://www.georgiahistory.com/georgia-historical-society-to-recognize-south-view-cemetery-with-historical-marker-dedication-this-saturday/)).",
@@ -741,6 +764,7 @@ window.SOUTHVIEW_CONTENT = {
       "date": "October 16, 1973",
       "period": "legacy",
       "person": "Maynard Holbrook Jackson Jr.",
+      "lifespan": "1938–2003",
       "title": "Maynard Jackson was elected Atlanta’s first Black mayor",
       "description": "On October 16, 1973, Maynard Holbrook Jackson Jr. defeated incumbent Sam Massell to become Atlanta’s first Black mayor and the first Black mayor of a major Southern city ([Today in Georgia History](https://www.todayingeorgiahistory.org/tih-georgia-day/maynard-jackson-elected/)). His administration increased opportunities for minority-owned businesses to receive city contracts and completed a new airport terminal ([Today in Georgia History](https://www.todayingeorgiahistory.org/tih-georgia-day/maynard-jackson-elected/)). Jackson served three terms as mayor, and the airport was later renamed Hartsfield-Jackson in his honor ([Today in Georgia History](https://www.todayingeorgiahistory.org/tih-georgia-day/maynard-jackson-elected/)).",
       "whyItBelongs": "His grandfather, John Wesley Dobbs, organized Black voter registration in Atlanta and was buried at South-View ([Bailey](https://www.georgiaencyclopedia.org/articles/history-archaeology/john-wesley-dobbs-1882-1961/); [Royster and Mehta](https://leading-edge.iac.gatech.edu/building-memories/southview-cemetery/)). That family connection links Jackson’s election to an earlier generation’s efforts to secure a voice in city government ([Bailey](https://www.georgiaencyclopedia.org/articles/history-archaeology/john-wesley-dobbs-1882-1961/); [Today in Georgia History](https://www.todayingeorgiahistory.org/tih-georgia-day/maynard-jackson-elected/)).",
@@ -766,6 +790,10 @@ window.SOUTHVIEW_CONTENT = {
         {
           "label": "Royster, Jacqueline Jones and Mehta, Prachi · South-View Cemetery: The Oldest African American Controlled Burial Ground in Atlanta, Georgia · Building Memories, Georgia Tech",
           "url": "https://leading-edge.iac.gatech.edu/building-memories/southview-cemetery/"
+        },
+        {
+          "label": "Rice, Bradley R. · Maynard Jackson · New Georgia Encyclopedia · 2004",
+          "url": "https://www.georgiaencyclopedia.org/articles/government-politics/maynard-jackson-1938-2003/"
         }
       ],
       "focus": "downtown",
@@ -776,6 +804,7 @@ window.SOUTHVIEW_CONTENT = {
       "year": 1974,
       "date": "April 8, 1974",
       "person": "Henry Louis Aaron",
+      "lifespan": "1934–2021",
       "title": "Hank Aaron broke Babe Ruth’s home run record",
       "description": "On April 8, 1974, Henry Louis Aaron hit his 715th career home run before a sellout crowd of 53,775 at Atlanta-Fulton County Stadium, passing Babe Ruth’s record ([Muder](https://baseballhall.org/discover-more/stories/inside-pitch/henry-aaron-hits-home-run-number-715)). The fourth-inning home run came off Los Angeles Dodgers pitcher Al Downing, and the Braves went on to win the game ([Muder](https://baseballhall.org/discover-more/stories/inside-pitch/henry-aaron-hits-home-run-number-715)). Aaron reached the milestone while facing racist threats and hate mail during the record chase, and he finished his major league career with 755 home runs ([Minter](https://www.georgiaencyclopedia.org/articles/sports-outdoor-recreation/hank-aaron-1934-2021/)).",
       "whyItBelongs": "Aaron was buried at South-View after his death in 2021 ([Clappin](https://citydesign.atlantaga.gov/blog/2022/7/28/promised-land-a-tour-of-atlantas-historically-african-american-cemeteries-and-the-graves-of-civil-rights-pioneers)). The Atlanta Cemetery Network includes him in its history of civil rights figures, recognizing sport among the areas in which Black Atlantans challenged racial barriers ([Clappin](https://citydesign.atlantaga.gov/blog/2022/7/28/promised-land-a-tour-of-atlantas-historically-african-american-cemeteries-and-the-graves-of-civil-rights-pioneers)).",
@@ -812,6 +841,7 @@ window.SOUTHVIEW_CONTENT = {
       "date": "July 3, 1974",
       "period": "legacy",
       "person": "Alberta Williams King",
+      "lifespan": "1904–1974",
       "title": "Alberta Williams King’s funeral was held in Atlanta",
       "description": "Alberta Williams King helped organize the choir at Atlanta’s Ebenezer Baptist Church and served for many years as an organist ([King Institute](https://kinginstitute.stanford.edu/king-alberta-williams)). She raised her children, including Martin Luther King Jr., in a household closely involved in the church and continued her own education at Morris Brown College ([King Institute](https://kinginstitute.stanford.edu/king-alberta-williams)). She was killed while playing the organ at Ebenezer on June 30, 1974, and her funeral took place at the church on July 3 ([Atlanta History Center](https://dlg.usg.edu/record/geh_byd_4202)).",
       "whyItBelongs": "King was buried at South-View, where her husband, Martin Luther King Sr., was later buried ([Georgia Historical Society](https://www.georgiahistory.com/georgia-historical-society-to-recognize-south-view-cemetery-with-historical-marker-dedication-this-saturday/)). Their son had also been buried at the cemetery after his funeral in 1968, before his crypt was moved to the King Center ([National Park Service](https://www.nps.gov/malu/a-strong-and-enduring-acknowledgment.htm)).",
@@ -852,6 +882,7 @@ window.SOUTHVIEW_CONTENT = {
       "date": "1977",
       "period": "legacy",
       "person": "Albert Hawes Watts",
+      "lifespan": "1913–2001",
       "title": "Albert Hawes Watts became South-View’s president-treasurer",
       "description": "Albert Hawes Watts, a grandson of South-View co-founder Albert Watts, became the cemetery association’s president-treasurer in 1977 ([South-View Cemetery Association](https://southviewcemetery.com/our-history/)). He had started at South-View digging graves and worked in several roles before taking responsibility for the association’s leadership ([South-View Cemetery Association](https://southviewcemetery.com/our-history/)). He remained president-treasurer until his death in 2001, continuing a family involvement that reached back to the cemetery’s founding ([South-View Cemetery Association](https://southviewcemetery.com/our-history/)).",
       "whyItBelongs": "His grandfather, Albert Watts, was South-View’s first treasurer until his death in 1903, and his father, Lewis Watts, served as secretary until 1936 ([Royster and Mehta](https://leading-edge.iac.gatech.edu/building-memories/southview-cemetery/)). The family’s work across those generations helped keep South-View operating as a Black-led institution, with relatives continuing to serve on its board and staff ([South-View Cemetery Association](https://southviewcemetery.com/our-history/)).",
@@ -873,6 +904,10 @@ window.SOUTHVIEW_CONTENT = {
         {
           "label": "South-View Cemetery Association · Our History · South-View Cemetery Association",
           "url": "https://southviewcemetery.com/our-history/"
+        },
+        {
+          "label": "Auburn Avenue Research Library · A Celebration of Life Honoring Albert Hawes Watts · Atlanta Funeral Programs Collection, Digital Library of Georgia · 2001",
+          "url": "https://dlg.usg.edu/record/aarl_afpc_wattsalberthawes20011126"
         }
       ],
       "focus": "south-view",
@@ -885,6 +920,7 @@ window.SOUTHVIEW_CONTENT = {
       "date": "February 11, 1978",
       "period": "legacy",
       "person": "Henry Ossian Flipper",
+      "lifespan": "1856–1940",
       "title": "Henry Ossian Flipper was reburied with military honors",
       "description": "Henry Ossian Flipper became the first Black graduate of the U.S. Military Academy at West Point in 1877 ([Georgia Historical Society](https://www.georgiahistory.com/ghmi_marker_updated/first-black-graduate-of-west-point/)). After his court-martial and dismissal from the Army in 1882, he pursued work in engineering, surveying and government service, while seeking to clear his military record ([Georgia Historical Society](https://www.georgiahistory.com/ghmi_marker_updated/first-black-graduate-of-west-point/)). His discharge was corrected in 1976, and on February 11, 1978, he was reburied with full military honors in his hometown of Thomasville, Georgia ([Georgia Historical Society](https://www.georgiahistory.com/ghmi_marker_updated/first-black-graduate-of-west-point/)).",
       "whyItBelongs": "Flipper had attended schools in Atlanta after emancipation, including Atlanta University, before entering West Point ([National Park Service](https://home.nps.gov/people/henryflipper.htm)). He was buried at South-View after his death in 1940 and remained there until the reburial in Thomasville ([South-View Cemetery Association](https://southviewcemetery.com/our-history/)).",
@@ -921,6 +957,7 @@ window.SOUTHVIEW_CONTENT = {
       "date": "March 28, 1984",
       "period": "legacy",
       "person": "Benjamin Elijah Mays",
+      "lifespan": "1894–1984",
       "title": "Morehouse president Benjamin Elijah Mays died",
       "description": "Benjamin Elijah Mays became president of Morehouse College on August 1, 1940, served until 1967 and died on March 28, 1984 ([King Institute](https://kinginstitute.stanford.edu/mays-benjamin-elijah)). An educator and Baptist minister, he mentored Martin Luther King Jr., who often visited his office after chapel services to discuss theology and current events ([King Institute](https://kinginstitute.stanford.edu/mays-benjamin-elijah)). Their relationship continued after King left Morehouse, and Mays supported his civil rights work and delivered the eulogy at his funeral in 1968 ([King Institute](https://kinginstitute.stanford.edu/mays-benjamin-elijah)).",
       "whyItBelongs": "Mays was first buried at South-View, before his remains were moved to the Morehouse campus ([South-View Cemetery Association](https://southviewcemetery.com/our-history/)). He was reinterred there with his wife, Sadie Gray Mays, connecting the cemetery’s burial history to the college where he had spent much of his career ([Royster and Mehta](https://leading-edge.iac.gatech.edu/building-memories/southview-cemetery/)).",
@@ -961,6 +998,7 @@ window.SOUTHVIEW_CONTENT = {
       "year": 1984,
       "date": "November 1984",
       "person": "Martin Luther King Sr.",
+      "lifespan": "1897–1984",
       "title": "Martin Luther King Sr. was buried at South-View",
       "description": "Martin Luther King Sr. led Ebenezer Baptist Church in Atlanta from 1931 to 1975, combining his ministry with campaigns for voter registration and equal pay for Black teachers ([King Institute](https://kinginstitute.stanford.edu/king-martin-luther-sr)). He helped organize civic work through the church and supported his son’s civil rights leadership, even when he feared for the family’s safety ([King Institute](https://kinginstitute.stanford.edu/king-martin-luther-sr)). His years at Ebenezer included the assassination of Martin Luther King Jr. in 1968 and the killing of his wife, Alberta Williams King, in 1974 ([King Institute](https://kinginstitute.stanford.edu/assassination-martin-luther-king-jr); [Atlanta History Center](https://dlg.usg.edu/record/geh_byd_4202)).",
       "whyItBelongs": "King Sr. died on November 11, 1984, and was buried at South-View, where Alberta Williams King was also buried ([King Institute](https://kinginstitute.stanford.edu/king-martin-luther-sr); [Georgia Historical Society](https://www.georgiahistory.com/georgia-historical-society-to-recognize-south-view-cemetery-with-historical-marker-dedication-this-saturday/)). The cemetery’s historical marker names both parents as religious and civil rights leaders ([Georgia Historical Society](https://www.georgiahistory.com/georgia-historical-society-to-recognize-south-view-cemetery-with-historical-marker-dedication-this-saturday/)).",
@@ -1000,6 +1038,7 @@ window.SOUTHVIEW_CONTENT = {
       "year": 1992,
       "date": "1992",
       "person": "Herman Jerome Russell",
+      "lifespan": "1930–2014",
       "title": "Herman Russell’s company helped build the Georgia Dome",
       "description": "Herman Jerome Russell grew a plastering business into a construction and real estate company whose projects changed much of Atlanta’s skyline ([Chenault](https://www.georgiaencyclopedia.org/articles/business-economy/herman-j-russell-1930-2014/)). His company helped build the Georgia Dome, which opened in 1992, as well as Hartsfield-Jackson Atlanta International Airport, Turner Field and Philips Arena ([Chenault](https://www.georgiaencyclopedia.org/articles/business-economy/herman-j-russell-1930-2014/); [Georgia Historical Society](https://www.georgiahistory.com/ghmi_marker_updated/georgia-dome/)). In the early 1960s, he became the first Black member of the Atlanta Chamber of Commerce and later helped Maynard Holbrook Jackson Jr. win the mayor’s office ([Chenault](https://www.georgiaencyclopedia.org/articles/business-economy/herman-j-russell-1930-2014/)).",
       "whyItBelongs": "Russell was a friend of Martin Luther King Jr. and provided advice and financial support during the Civil Rights Movement ([Chenault](https://www.georgiaencyclopedia.org/articles/business-economy/herman-j-russell-1930-2014/)). He died in 2014 and was buried at South-View, connecting the cemetery to both Atlanta’s construction industry and its political history ([Chenault](https://www.georgiaencyclopedia.org/articles/business-economy/herman-j-russell-1930-2014/); [Royster and Mehta](https://leading-edge.iac.gatech.edu/building-memories/southview-cemetery/)).",
@@ -1036,6 +1075,7 @@ window.SOUTHVIEW_CONTENT = {
       "date": "January 24, 2007",
       "period": "legacy",
       "person": "Freddye Scarborough Henderson",
+      "lifespan": "1917–2007",
       "title": "Freddye Henderson was buried at South-View",
       "description": "Freddye Scarborough Henderson’s funeral took place at Ebenezer Baptist Church on January 24, 2007, five days after her death ([Auburn Avenue Research Library](https://dlg.usg.edu/record/aarl_afpc_hendersonfreddyescarborough20070124)). She and her husband, Jacob, had founded Henderson Travel Service in Atlanta in 1955, helping Black travelers experience freedoms abroad that segregation denied them at home ([Auburn Avenue Research Library](https://dlg.usg.edu/record/aarl_afpc_hendersonfreddyescarborough20070124)). The agency organized a tour for Ghana’s independence in 1957 and arranged Martin Luther King Jr.’s journey to Norway for the 1964 Nobel Peace Prize ceremony ([Auburn Avenue Research Library](https://dlg.usg.edu/record/aarl_afpc_hendersonfreddyescarborough20070124)).",
       "whyItBelongs": "Her funeral program listed South-View as the place of interment and stated that she would rest beside her husband, Jake ([Auburn Avenue Research Library](https://dlg.usg.edu/record/aarl_afpc_hendersonfreddyescarborough20070124)). Her burial connects the cemetery to a family business that expanded travel opportunities for Black Americans and built relationships with communities abroad ([Auburn Avenue Research Library](https://dlg.usg.edu/record/aarl_afpc_hendersonfreddyescarborough20070124)).",
@@ -1069,6 +1109,7 @@ window.SOUTHVIEW_CONTENT = {
       "date": "January 7, 2013",
       "period": "legacy",
       "person": "Lillian Miles Lewis",
+      "lifespan": "1939–2012",
       "title": "Lillian Miles Lewis’s funeral was held at Ebenezer",
       "description": "Lillian Miles Lewis worked as a librarian and director of special collections at Atlanta University, where she took a position in 1965 ([Auburn Avenue Research Library](https://dlg.usg.edu/record/aarl_afpc_lewislillianmiles20130107)). She later held administrative roles at Clark Atlanta University and supported her husband, John Robert Lewis, through his city council and congressional career ([Auburn Avenue Research Library](https://dlg.usg.edu/record/aarl_afpc_lewislillianmiles20130107)). After her death on December 31, 2012, her funeral took place at Ebenezer Baptist Church on January 7, 2013 ([Auburn Avenue Research Library](https://dlg.usg.edu/record/aarl_afpc_lewislillianmiles20130107)).",
       "whyItBelongs": "Her funeral program listed South-View as the place of interment and recorded her work in education and public life ([Auburn Avenue Research Library](https://dlg.usg.edu/record/aarl_afpc_lewislillianmiles20130107)). Her husband was buried at the same cemetery in 2020, bringing their family’s history of service in Atlanta into South-View’s history ([Clappin](https://citydesign.atlantaga.gov/blog/2022/7/28/promised-land-a-tour-of-atlantas-historically-african-american-cemeteries-and-the-graves-of-civil-rights-pioneers)).",
@@ -1136,6 +1177,7 @@ window.SOUTHVIEW_CONTENT = {
       "year": 2020,
       "date": "July 30, 2020",
       "person": "John Robert Lewis",
+      "lifespan": "1940–2020",
       "title": "John Lewis was buried at South-View",
       "description": "John Robert Lewis represented Georgia’s Fifth Congressional District from 1987 until his death in 2020, after years of civil rights organizing with the Student Nonviolent Coordinating Committee ([U.S. House of Representatives](https://history.house.gov/People/Detail/16948)). His earlier work included the March on Washington and the voting rights march at Selma, where state troopers attacked him and other demonstrators in 1965 ([U.S. House of Representatives](https://history.house.gov/People/Detail/16948)). After lying in state at the U.S. Capitol, he was honored at an Ebenezer Baptist Church funeral on July 30, 2020 ([WSB-TV](https://www.wsbtv.com/news/local/heres-what-expect-during-rep-john-lewis-funeral/YJZQUO6XXFATFOFS7RUBVSC2CQ/)).",
       "whyItBelongs": "Lewis was buried at South-View that day, joining other people whose work appears in Atlanta’s civil rights history ([Clappin](https://citydesign.atlantaga.gov/blog/2022/7/28/promised-land-a-tour-of-atlantas-historically-african-american-cemeteries-and-the-graves-of-civil-rights-pioneers)). His wife, librarian and civic worker Lillian Miles Lewis, had been buried there after her funeral in 2013 ([Auburn Avenue Research Library](https://dlg.usg.edu/record/aarl_afpc_lewislillianmiles20130107)).",

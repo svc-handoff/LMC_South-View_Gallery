@@ -136,6 +136,9 @@
         h('div', { class: 'hero__inner reveal' }, [
           h('p', { class: 'hero__kicker', text: site.kicker || '' }),
           h('h1', { class: 'hero__title', id: 'hero-title', text: site.title || 'South-View' }),
+          site.location ? h('p', { class: 'hero__location' }, [
+            site.locationUrl ? link(site.location, site.locationUrl, 'hero__location-link') : site.location,
+          ]) : null,
           h('p', { class: 'hero__dek' }, citedText(site.dek || '')),
           h('p', { class: 'hero__cue', 'aria-hidden': 'true' }, [h('span', { text: 'Scroll to begin' }), h('span', { class: 'hero__cue-line' })]),
         ]),
@@ -214,7 +217,14 @@
       ]));
       const body = h('div', { class: 'entry__body reveal' }, [
         h('div', { class: 'card' }, [
-          h('p', { class: 'entry__eyebrow' }, [h('span', { class: 'entry__date', text: e.date || String(e.year) }), e.person ? h('span', { class: 'entry__person', text: e.person }) : null]),
+          h('p', { class: 'entry__eyebrow' }, [
+            h('span', { class: 'entry__date', text: e.date || String(e.year) }),
+            e.person ? h('span', { class: 'entry__person' }, [
+              e.person,
+              e.lifespan ? ' ' : null,
+              e.lifespan ? h('span', { class: 'entry__lifespan', text: '(' + e.lifespan + ')' }) : null,
+            ]) : null,
+          ]),
           h('h3', { class: 'entry__title', id: titleId, text: e.title }),
           e.description ? h('p', { class: 'entry__desc' }, citedText(e.description)) : null,
           e.whyItBelongs
