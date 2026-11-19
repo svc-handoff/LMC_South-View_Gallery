@@ -1,3 +1,4 @@
+
 name: Sync approved South-View entries
 
 on:
@@ -24,7 +25,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Append approved NEW entries to existing timeline.js
+      - name: Sync approved entries (add, edit, and hide)
         env:
           SOUTHVIEW_CSV_URL: ${{ vars.SOUTHVIEW_PUBLIC_CSV_URL }}
         run: |
@@ -34,175 +35,142 @@ jobs:
           import json
           import os
           import re
+          import subprocess
           import sys
           from pathlib import Path
           from urllib.request import Request, urlopen
 
-          csv_url = os.environ.get('SOUTHVIEW_CSV_URL', '').strip()
-          if not csv_url.startswith('https://'):
-              sys.exit('Set SOUTHVIEW_PUBLIC_CSV_URL to the published Public Export CSV URL.')
+          url = os.environ.get('SOUTHVIEW_CSV_URL', '').strip()
+          if not url.startswith('https://'):
+              sys.exit('Missing SOUTHVIEW_PUBLIC_CSV_URL GitHub variable.')
 
-          request = Request(csv_url, headers={'User-Agent': 'SouthViewGallerySync/1.0'})
-          with urlopen(request, timeout=30) as response:
+          with urlopen(Request(url, headers={'User-Agent': 'SouthViewSync/2.0'}), timeout=30) as response:
               csv_text = response.read().decode('utf-8-sig')
 
           reader = csv.DictReader(io.StringIO(csv_text))
-          needed = {
-              'id', 'year', 'date', 'period', 'person', 'title',
-              'description', 'whyItBelongs', 'media', 'sources',
-              'focus', 'status', 'approved'
-          }
+          required = {'id', 'year', 'date', 'period', 'person', 'title',
+                      'description', 'whyItBelongs', 'media', 'sources',
+                      'focus', 'status', 'approved'}
+          if not reader.fieldnames or not required.issubset(reader.fieldnames):
+              sys.exit('Public Export is missing required columns; nothing changed.')
 
-          if not reader.fieldnames or not needed.issubset(reader.fieldnames):
-              sys.exit('Public Export CSV has missing headers; refusing to modify the gallery.')
+          path = Path('content/timeline.js')
+          original = path.read_text(encoding='utf-8')
+          load_js = ("global.window = {}; require('./content/timeline.js'); "
+                     "process.stdout.write(JSON.stringify(window.SOUTHVIEW_CONTENT.entries));")
+          existing = json.loads(subprocess.check_output(['node', '-e', load_js], text=True))
+          old_by_id = {entry['id']: entry for entry in existing}
+          if len(old_by_id) != len(existing):
+              sys.exit('Duplicate IDs in timeline.js; nothing changed.')
 
-          timeline_path = Path('content/timeline.js')
-          original = timeline_path.read_text(encoding='utf-8')
-          marker = '  entries: ['
-
-          if original.count(marker) != 1:
-              sys.exit('Cannot locate exactly one entries array in timeline.js.')
-
-          entries_section = original.split(marker, 1)[1]
-          existing_ids = set(re.findall(
-              r'''(?m)^\s*(?:id|["']id["'])\s*:\s*["']([a-z0-9]+(?:-[a-z0-9]+)*)["']''',
-              entries_section
-          ))
-
-          seen_csv = set()
-          additions = []
-
-          valid_periods = {
-              '', 'prologue', 'founding', 'civil-rights', 'legacy'
-          }
-          valid_statuses = {
-              'researched', 'draft', 'placeholder'
-          }
-          valid_focus = {
-              '', 'railroad', 'capitol', 'kimball-house', 'auc',
-              'grady', 'sweet-auburn', 'ebenezer',
-              'fulton-county-stadium', 'turner-field',
-              'georgia-dome', 'downtown', 'midtown',
-              'skyline', 'south-view'
-          }
+          incoming = []
+          seen = set()
 
           for row in reader:
-              if not row or not (row.get('id') or '').strip():
+              entry_id = (row.get('id') or '').strip()
+              if not entry_id:
                   continue
 
-              if str(row.get('approved', '')).strip().lower() not in {'true', 'yes', '1'}:
-                  continue
+              if (row.get('approved') or '').strip().lower() not in {'true', 'yes', '1'}:
+                  sys.exit(f'Unapproved record {entry_id} appeared in Public Export.')
 
-              entry_id = row['id'].strip()
-
-              if not re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', entry_id):
-                  sys.exit(f'Invalid entry ID: {entry_id!r}')
-
-              if entry_id in seen_csv:
-                  sys.exit(f'Duplicate approved entry ID: {entry_id}')
-
-              seen_csv.add(entry_id)
-
-              if entry_id in existing_ids:
-                  continue
+              if not re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', entry_id) or entry_id in seen:
+                  sys.exit(f'Invalid or duplicate ID: {entry_id}')
+              seen.add(entry_id)
 
               try:
                   year = int(row['year'])
                   media = json.loads(row['media'] or '{}')
                   sources = json.loads(row['sources'] or '[]')
-              except (ValueError, TypeError, json.JSONDecodeError) as exc:
-                  sys.exit(f'Invalid year or JSON for {entry_id}: {exc}')
+              except (ValueError, TypeError) as exc:
+                  sys.exit(f'Invalid year, media or sources for {entry_id}: {exc}')
 
               if not 1800 <= year <= 2100:
-                  sys.exit(f'Year out of range for {entry_id}: {year}')
+                  sys.exit(f'Invalid year for {entry_id}: {year}')
 
-              if not all((row[key] or '').strip() for key in (
-                  'title', 'description', 'whyItBelongs'
-              )):
-                  sys.exit(f'Missing historical text for {entry_id}')
+              if not all((row.get(k) or '').strip() for k in ('title', 'description', 'whyItBelongs')):
+                  sys.exit(f'Missing required text for {entry_id}')
 
               if not isinstance(media, dict) or not isinstance(sources, list) or not sources:
-                  sys.exit(f'Invalid media or sources for {entry_id}')
+                  sys.exit(f'Missing media object or sources for {entry_id}')
 
-              if any(
-                  not isinstance(source, dict)
-                  or not source.get('label')
-                  or not str(source.get('url', '')).startswith(('http://', 'https://'))
-                  for source in sources
-              ):
-                  sys.exit(f'Invalid source citation for {entry_id}')
+              if any(not isinstance(s, dict) or not s.get('label') or
+                     not str(s.get('url', '')).startswith(('https://', 'http://')) for s in sources):
+                  sys.exit(f'Invalid citation for {entry_id}')
 
-              src = str(media.get('src', '')).strip()
-              if src and not (
-                  src.startswith(('http://', 'https://', 'assets/images/'))
-                  and '..' not in src
-              ):
+              valid_periods = {'', 'prologue', 'founding', 'civil-rights', 'legacy'}
+              valid_statuses = {'researched', 'draft', 'placeholder'}
+              valid_focus = {'', 'railroad', 'capitol', 'kimball-house', 'auc',
+                             'grady', 'sweet-auburn', 'ebenezer', 'fulton-county-stadium',
+                             'turner-field', 'georgia-dome', 'downtown', 'midtown',
+                             'skyline', 'south-view'}
+
+              if ((row.get('period') or '').strip() not in valid_periods or
+                  (row.get('status') or 'draft').strip() not in valid_statuses or
+                  (row.get('focus') or '').strip() not in valid_focus):
+                  sys.exit(f'Invalid period, focus, or status for {entry_id}')
+
+              image = str(media.get('src') or '')
+              if image and (not image.startswith(('https://', 'assets/images/')) or '..' in image):
                   sys.exit(f'Invalid image path for {entry_id}')
 
-              period = (row['period'] or '').strip()
-              focus = (row['focus'] or '').strip()
-              status = (row['status'] or 'draft').strip()
-
-              if (
-                  period not in valid_periods
-                  or focus not in valid_focus
-                  or status not in valid_statuses
-              ):
-                  sys.exit(f'Invalid period, focus or status for {entry_id}')
-
-              entry = {
+              entry = old_by_id.get(entry_id, {}).copy()
+              entry.update({
                   'id': entry_id,
                   'year': year,
-                  'date': (row['date'] or '').strip(),
-                  'person': (row['person'] or '').strip(),
+                  'date': (row.get('date') or '').strip(),
+                  'person': (row.get('person') or '').strip(),
                   'title': row['title'].strip(),
                   'description': row['description'].strip(),
                   'whyItBelongs': row['whyItBelongs'].strip(),
                   'media': media,
                   'sources': sources,
-                  'status': status,
-              }
+                  'status': (row.get('status') or 'draft').strip(),
+              })
 
-              if period:
-                  entry['period'] = period
-              if focus:
-                  entry['focus'] = focus
+              for optional in ('period', 'focus', 'lifespan'):
+                  value = (row.get(optional) or '').strip()
+                  if value:
+                      entry[optional] = value
+                  else:
+                      entry.pop(optional, None)
 
-              additions.append(entry)
+              incoming.append(entry)
 
-          if additions:
-              closing = re.search(r'(?m)^  \],\s*\n\};\s*$', original)
-              if not closing:
-                  sys.exit('Unexpected timeline.js ending; refusing to modify existing code.')
+          # Protect the website against an accidentally empty export.
+          if len(incoming) < 25:
+              sys.exit(f'Only {len(incoming)} approved entries found; refusing to publish.')
 
-              block = '    // Approved historical entries added from Google Sheets.\n'
+          removed = set(old_by_id) - seen
+          if len(removed) > 3:
+              sys.exit(f'{len(removed)} removals detected; refusing to publish more than 3 at once.')
 
-              for entry in additions:
-                  lines = json.dumps(
-                      entry, ensure_ascii=False, indent=2
-                  ).splitlines()
+          # Preserve existing story order when years are equal.
+          old_order = {entry['id']: i for i, entry in enumerate(existing)}
+          new_order = {entry['id']: i for i, entry in enumerate(incoming)}
+          incoming.sort(key=lambda e: (e['year'], old_order.get(e['id'], 100000 + new_order[e['id']])))
 
-                  for line in lines[:-1]:
-                      block += '    ' + line + '\n'
-
-                  block += '    },\n'
-
-              updated = (
-                  original[:closing.start()]
-                  + block
-                  + original[closing.start():]
-              )
-
-              timeline_path.write_text(updated, encoding='utf-8')
-              print('Added new IDs:', ', '.join(e['id'] for e in additions))
+          if incoming == existing:
+              print('No content changes; timeline.js unchanged.')
           else:
-              print('No new approved IDs. Existing timeline.js unchanged.')
+              start = original.find('  entries: [')
+              end_marker = '\n  ],\n};'
+              end = original.rfind(end_marker)
+
+              if start < 0 or end < start or original.count('  entries: [') != 1:
+                  sys.exit('Unexpected timeline.js format; nothing changed.')
+
+              rendered = '  entries: ' + json.dumps(incoming, ensure_ascii=False, indent=2).replace('\n', '\n  ') + ','
+              updated = original[:start] + rendered + original[end + len('\n  ],'):]
+
+              path.write_text(updated, encoding='utf-8')
+              print(f'Approved: {len(incoming)}; hidden/removed: {len(removed)}; saved timeline.js')
           PY
 
       - name: Check updated JavaScript syntax
         run: node --check content/timeline.js
 
-      - name: Save new entries to existing GitHub file
+      - name: Commit changes to timeline.js
         run: |
           if git diff --quiet -- content/timeline.js; then
             echo 'No changes to commit.'
@@ -210,7 +178,7 @@ jobs:
             git config user.name 'github-actions[bot]'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
             git add content/timeline.js
-            git commit -m 'Add approved South-View historical entries'
+            git commit -m 'Sync approved South-View historical entries'
             git push
           fi
 
